@@ -43,6 +43,11 @@ allprojects {
         named<Jar>("jar") {
             archiveFileName.set("${rootProject.name}-${project.name}-${project.version}.jar")
         }
+
+        val publishJar by creating(Jar::class) {
+            archiveFileName.set("${rootProject.name}-${project.name}-${project.version}.jar")
+            from(sourceSets.main.get().output)
+        }
     }
 }
 
@@ -52,7 +57,7 @@ publishing {
             name = "ole101"
             val releasesRepoUrl = "https://repo.ole101.de/releases"
             val snapshotsRepoUrl = "https://repo.ole101.de/snapshots"
-            url = uri(if (version.toString().endsWith("SNAPSHOT")) snapshotsRepoUrl else releasesRepoUrl)
+            url = uri(if (project.version.toString().endsWith("SNAPSHOT")) snapshotsRepoUrl else releasesRepoUrl)
             credentials(PasswordCredentials::class)
             authentication {
                 create<BasicAuthentication>("basic")
@@ -64,7 +69,7 @@ publishing {
             groupId = "de.ole101"
             artifactId = "i18n"
             version = project.version as String
-            artifact(project(":api").tasks.named("jar").get())
+            artifact(project(":api").tasks.named("publishJar").get())
         }
     }
 }
