@@ -14,3 +14,4 @@ annotations = { group = "org.jetbrains", name = "annotations", version.ref = "an
 [plugins]
 shadow = { id = "com.github.johnrengelman.shadow", version.ref = "shadow" }
 paperweight-userdev = { id = "io.papermc.paperweight.userdev", version.ref = "paperweight-userdev" }
+maven-publish = { id = "maven-publish" }
