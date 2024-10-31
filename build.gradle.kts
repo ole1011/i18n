@@ -10,7 +10,7 @@ allprojects {
     apply(plugin = rootProject.libs.plugins.paperweight.userdev.get().pluginId)
 
     group = "de.ole101.i18n"
-    version = "1.0-SNAPSHOT"
+    version = "1.0.0"
     description = "A small library for simplifying internationalization in Minecraft plugins"
 
     repositories {
