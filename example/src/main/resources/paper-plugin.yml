@@ -1,0 +1,7 @@
+name: ExamplePlugin
+version: '${version}'
+main: de.ole101.i18n.example.ExamplePlugin
+api-version: '1.21.1'
+description: An example plugin to demonstrate i18n
+authors:
+  - ole101

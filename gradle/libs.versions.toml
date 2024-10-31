@@ -1,0 +1,16 @@
+[versions]
+lombok = "1.18.34"
+guice = "7.0.0"
+annotations = "26.0.1"
+
+shadow = "8.1.1"
+paperweight-userdev = "1.7.2"
+
+[libraries]
+lombok = { group = "org.projectlombok", name = "lombok", version.ref = "lombok" }
+guice = { group = "com.google.inject", name = "guice", version.ref = "guice" }
+annotations = { group = "org.jetbrains", name = "annotations", version.ref = "annotations" }
+
+[plugins]
+shadow = { id = "com.github.johnrengelman.shadow", version.ref = "shadow" }
+paperweight-userdev = { id = "io.papermc.paperweight.userdev", version.ref = "paperweight-userdev" }
