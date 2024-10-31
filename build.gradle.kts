@@ -3,6 +3,7 @@ import org.gradle.api.JavaVersion.VERSION_21
 plugins {
     java
     alias(libs.plugins.paperweight.userdev)
+    alias(libs.plugins.maven.publish)
 }
 
 allprojects {
@@ -41,6 +42,29 @@ allprojects {
 
         named<Jar>("jar") {
             archiveFileName.set("${rootProject.name}-${project.name}-${project.version}.jar")
+        }
+    }
+}
+
+publishing {
+    repositories {
+        maven {
+            name = "ole101"
+            val releasesRepoUrl = "https://repo.ole101.de/releases"
+            val snapshotsRepoUrl = "https://repo.ole101.de/snapshots"
+            url = uri(if (version.toString().endsWith("SNAPSHOT")) snapshotsRepoUrl else releasesRepoUrl)
+            credentials(PasswordCredentials::class)
+            authentication {
+                create<BasicAuthentication>("basic")
+            }
+        }
+    }
+    publications {
+        create<MavenPublication>("maven") {
+            groupId = "de.ole101"
+            artifactId = "i18n"
+            version = project.version as String
+            artifact(project(":api").tasks.named("jar").get())
         }
     }
 }
