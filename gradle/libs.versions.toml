@@ -4,7 +4,7 @@ guice = "7.0.0"
 annotations = "26.0.1"
 
 shadow = "8.1.1"
-paperweight-userdev = "1.7.2"
+paperweight-userdev = "1.7.4"
 
 [libraries]
 lombok = { group = "org.projectlombok", name = "lombok", version.ref = "lombok" }
