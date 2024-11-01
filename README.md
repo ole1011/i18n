@@ -1,5 +1,8 @@
 <div align="center">
-    <img src=".github/translation_library.png" alt="i18n Library">
+   <img src=".github/translation_library.png" alt="i18n Library"><br>
+   <img src="https://img.shields.io/github/actions/workflow/status/ole1011/i18n/build.yml" alt="GitHub Actions Workflow Status">
+   <img src="https://img.shields.io/github/license/ole1011/i18n" alt="GitHub License">
+   <img src="https://img.shields.io/github/v/release/ole1011/i18n" alt="GitHub Release">
 </div>
 
 # i18n
