@@ -20,6 +20,10 @@ import java.util.Locale;
 
 import static de.ole101.i18n.api.MiniMessageProvider.MM;
 
+/**
+ * A wrapper class for the TranslationRegistry that provides additional functionality
+ * for translating components using MiniMessage.
+ */
 @AllArgsConstructor
 public class PluginTranslationRegistry implements TranslationRegistry {
 
@@ -58,7 +62,6 @@ public class PluginTranslationRegistry implements TranslationRegistry {
     @Override
     public @Nullable Component translate(@NotNull TranslatableComponent component, @NotNull Locale locale) {
         MessageFormat translationFormat = this.delegate.translate(component.key(), locale);
-
         if (translationFormat == null) {
             return null;
         }
@@ -79,11 +82,23 @@ public class PluginTranslationRegistry implements TranslationRegistry {
         }
     }
 
+    /**
+     * A TagResolver implementation for resolving argument tags in MiniMessage strings.
+     */
     private record ArgumentTag(@NotNull List<? extends ComponentLike> argumentComponents) implements TagResolver {
 
         private static final String NAME = "argument";
         private static final String ALIAS = "arg";
 
+        /**
+         * Resolves a tag in a MiniMessage string.
+         *
+         * @param name      the name of the tag
+         * @param arguments the arguments for the tag
+         * @param ctx       the context for the tag
+         * @return the resolved Tag
+         * @throws ParsingException if the tag cannot be resolved
+         */
         @Override
         public @NotNull Tag resolve(@NotNull String name, @NotNull ArgumentQueue arguments, @NotNull Context ctx) throws ParsingException {
             int index = arguments.popOr("No argument number provided")
@@ -96,6 +111,12 @@ public class PluginTranslationRegistry implements TranslationRegistry {
             return Tag.inserting(this.argumentComponents.get(index));
         }
 
+        /**
+         * Checks if the given name matches either the NAME or ALIAS constants.
+         *
+         * @param name the name to be checked
+         * @return true if the name matches either NAME or ALIAS; false otherwise
+         */
         @Override
         public boolean has(@NotNull String name) {
             return name.equals(NAME) || name.equals(ALIAS);
