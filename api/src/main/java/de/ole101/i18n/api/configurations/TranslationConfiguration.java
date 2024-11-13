@@ -6,7 +6,6 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Locale;
 import java.util.Set;
 
-
 /**
  * Represents the configuration for translation services.
  *

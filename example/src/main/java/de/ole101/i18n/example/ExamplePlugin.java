@@ -2,8 +2,8 @@ package de.ole101.i18n.example;
 
 import com.google.inject.Guice;
 import com.google.inject.Injector;
-import de.ole101.i18n.api.services.TranslationService;
 import de.ole101.i18n.api.configurations.TranslationConfiguration;
+import de.ole101.i18n.api.services.TranslationService;
 import de.ole101.i18n.example.common.GuiceModule;
 import lombok.extern.log4j.Log4j2;
 import net.kyori.adventure.key.Key;
