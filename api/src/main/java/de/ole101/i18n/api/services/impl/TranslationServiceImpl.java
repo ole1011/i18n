@@ -3,7 +3,6 @@ package de.ole101.i18n.api.services.impl;
 import de.ole101.i18n.api.PluginTranslationRegistry;
 import de.ole101.i18n.api.configurations.TranslationConfiguration;
 import de.ole101.i18n.api.services.TranslationService;
-import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import net.kyori.adventure.translation.GlobalTranslator;
 import net.kyori.adventure.translation.TranslationRegistry;
@@ -20,7 +19,6 @@ import java.util.ResourceBundle;
  * This class provides methods to initialize the translation service and register resource bundles.
  */
 @Slf4j
-@Getter
 public class TranslationServiceImpl implements TranslationService {
 
     private TranslationRegistry translationRegistry;
@@ -66,5 +64,31 @@ public class TranslationServiceImpl implements TranslationService {
         } catch (MissingResourceException exception) {
             log.error("Failed to load resource bundle: {} for locale: {}", namespace, locale, exception);
         }
+    }
+
+    /**
+     * Returns the current translation registry.
+     *
+     * @return the current translation configuration
+     */
+    public TranslationRegistry getTranslationRegistry() {
+        if (this.translationRegistry == null) {
+            throw new IllegalStateException("Translation service not initialized");
+        }
+
+        return this.translationRegistry;
+    }
+
+    /**
+     * Returns the current translation configuration.
+     *
+     * @return the current translation configuration
+     */
+    public TranslationConfiguration getConfiguration() {
+        if (this.configuration == null) {
+            throw new IllegalStateException("Translation service not initialized");
+        }
+
+        return this.configuration;
     }
 }
