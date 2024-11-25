@@ -11,7 +11,7 @@ allprojects {
     apply(plugin = rootProject.libs.plugins.paperweight.userdev.get().pluginId)
 
     group = "de.ole101.i18n"
-    version = "1.0.0"
+    version = "1.0.1"
     description = "A small library for simplifying internationalization in Minecraft plugins"
 
     repositories {
@@ -26,7 +26,7 @@ allprojects {
         implementation(rootProject.libs.guice)
         implementation(rootProject.libs.annotations)
 
-        paperweight.paperDevBundle("1.21.1-R0.1-SNAPSHOT")
+        paperweight.paperDevBundle("1.21.3-R0.1-SNAPSHOT")
     }
 
     tasks {
