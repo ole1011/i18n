@@ -11,7 +11,7 @@ public interface MiniMessageProvider {
     /**
      * A constant MiniMessage instance.
      */
-    MiniMessage MM = MiniMessage.miniMessage();
+    MiniMessage MM = miniMessage();
 
     /**
      * Returns a MiniMessage instance.
