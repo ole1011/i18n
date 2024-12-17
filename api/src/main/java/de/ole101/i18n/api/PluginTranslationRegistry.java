@@ -1,5 +1,6 @@
 package de.ole101.i18n.api;
 
+import de.ole101.i18n.api.configurations.TranslationConfiguration;
 import lombok.AllArgsConstructor;
 import net.kyori.adventure.key.Key;
 import net.kyori.adventure.text.Component;
@@ -18,8 +19,6 @@ import java.text.MessageFormat;
 import java.util.List;
 import java.util.Locale;
 
-import static de.ole101.i18n.api.MiniMessageProvider.MM;
-
 /**
  * A wrapper class for the TranslationRegistry that provides additional functionality
  * for translating components using MiniMessage.
@@ -28,6 +27,7 @@ import static de.ole101.i18n.api.MiniMessageProvider.MM;
 public class PluginTranslationRegistry implements TranslationRegistry {
 
     private final TranslationRegistry delegate;
+    private final TranslationConfiguration configuration;
 
     @Override
     public boolean contains(@NotNull String key) {
@@ -70,9 +70,9 @@ public class PluginTranslationRegistry implements TranslationRegistry {
 
         Component resultingComponent;
         if (component.arguments().isEmpty()) {
-            resultingComponent = MM.deserialize(miniMessageString);
+            resultingComponent = this.configuration.miniMessage().deserialize(miniMessageString);
         } else {
-            resultingComponent = MM.deserialize(miniMessageString, new ArgumentTag(component.arguments()));
+            resultingComponent = this.configuration.miniMessage().deserialize(miniMessageString, new ArgumentTag(component.arguments()));
         }
 
         if (component.children().isEmpty()) {

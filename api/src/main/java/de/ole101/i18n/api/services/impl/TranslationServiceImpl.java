@@ -35,7 +35,8 @@ public class TranslationServiceImpl implements TranslationService {
         Objects.requireNonNull(configuration, "configuration must not be null");
 
         this.translationRegistry = new PluginTranslationRegistry(
-                TranslationRegistry.create(configuration.translationKey())
+                TranslationRegistry.create(configuration.translationKey()),
+                configuration
         );
         this.translationRegistry.defaultLocale(configuration.defaultLocale());
         this.configuration = configuration;
