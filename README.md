@@ -7,7 +7,8 @@
 
 # i18n
 
-This is a small internationalization (i18n) library tailored for Minecraft plugins, particularly those built on the [Paper](https://papermc.io/) platform.
+This is a small internationalization (i18n) library tailored for Minecraft plugins, particularly those built on
+the [Paper](https://papermc.io/) platform.
 It simplifies translation management, allowing you to easily support multiple languages for better player experience.
 
 > [!IMPORTANT]
@@ -16,7 +17,8 @@ It simplifies translation management, allowing you to easily support multiple la
 
 ## Purpose
 
-The goal of this project is to provide an easy-to-use API that helps Minecraft plugin developers add localization support to their plugins.
+The goal of this project is to provide an easy-to-use API that helps Minecraft plugin developers add localization support to their
+plugins.
 
 ## Project Structure
 
@@ -33,7 +35,8 @@ There are two main components in this project:
 
 ## Setup
 
-To include this library in your own plugin project, you can pull it from the Reposilite repository. Below are instructions for different build tools:
+To include this library in your own plugin project, you can pull it from the Reposilite repository. Below are instructions for
+different build tools:
 
 ### 1. Gradle (Kotlin DSL)
 
@@ -158,9 +161,11 @@ To include this library in your own plugin project, you can pull it from the Rep
 
 To use this library in your Minecraft plugin:
 
-1. **Load translations**: Create language files (e.g., `common_en.properties`, `common_de.properties`) and place them in your resources folder.
+1. **Load translations**: Create language files (e.g., `common_en.properties`, `common_de.properties`) and place them in your resources
+   folder.
 
-2. **Retrieve messages**: Use the provided API methods to retrieve messages in a specific language. The API can fetch translations based on a player’s locale.
+2. **Retrieve messages**: Use the provided API methods to retrieve messages in a specific language. The API can fetch translations
+   based on a player’s locale.
 
 3. **Example Plugin**: Refer to the `example` module for a complete implementation on how to set up i18n in a Minecraft plugin.
 
