@@ -15,7 +15,8 @@ import java.util.Set;
  * @param supportedLocales the set of locales supported for translations
  * @param miniMessage      the MiniMessage instance used for message processing
  */
-public record TranslationConfiguration(Key translationKey, Locale defaultLocale, Set<Locale> supportedLocales, MiniMessage miniMessage) {
+public record TranslationConfiguration(Key translationKey, Locale defaultLocale, Set<Locale> supportedLocales,
+                                       MiniMessage miniMessage) {
 
     /**
      * Creates a new instance of TranslationConfiguration with the specified translation key, default locale,
