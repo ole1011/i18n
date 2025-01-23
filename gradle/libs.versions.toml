@@ -1,7 +1,7 @@
 [versions]
 lombok = "1.18.36"
 guice = "7.0.0"
-annotations = "26.0.1"
+annotations = "26.0.2"
 
 shadow = "8.1.1"
 paperweight-userdev = "1.7.7"
